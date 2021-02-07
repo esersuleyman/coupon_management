@@ -69,7 +69,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"Test Coupon\",\r\n    \"discountRate\":0.30,\r\n    \"assignCount\":100\r\n    \r\n}",
+					"raw": "{\r\n    \"name\":\"Test Coupon\",\r\n    \"discountRate\":0.30,\r\n    \"assignCount\":50\r\n    \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -117,7 +117,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\":1,\r\n    \"name\":\"Updated Test Coupon\",\r\n    \"discountRate\":0.30,\r\n    \"assignCount\":1000\r\n    \r\n}",
+					"raw": "{\r\n    \"id\":1,\r\n    \"name\":\"Updated Test Coupon\",\r\n    \"discountRate\":0.30,\r\n    \"assignCount\":100\r\n    \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -158,18 +158,25 @@
 				"header": [
 					{
 						"key": "Content-Type",
+						"type": "text",
 						"value": "application/x-www-form-urlencoded",
-						"type": "text"
+						"disabled": true
 					}
 				],
 				"url": {
-					"raw": "localhost:8080/coupons",
+					"raw": "localhost:8080/coupon?couponId=1",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"coupons"
+						"coupon"
+					],
+					"query": [
+						{
+							"key": "couponId",
+							"value": "1"
+						}
 					]
 				}
 			},
@@ -236,22 +243,30 @@
 				}
 			],
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
+						"type": "text",
 						"value": "application/x-www-form-urlencoded",
-						"type": "text"
+						"disabled": true
 					}
 				],
 				"url": {
-					"raw": "localhost:8080/coupons",
+					"raw": "localhost:8080/coupon/assign?couponId=1",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"coupons"
+						"coupon",
+						"assign"
+					],
+					"query": [
+						{
+							"key": "couponId",
+							"value": "1"
+						}
 					]
 				}
 			},
