@@ -1,0 +1,262 @@
+{
+	"info": {
+		"_postman_id": "b35327f9-5528-44ca-8b1b-b1ccab08f652",
+		"name": "CouponManagement",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Coupons",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "759bf986-369d-4c64-96fc-c8815ca8227e",
+						"exec": [
+							"var data = pm.response.json();\r",
+							"pm.environment.set(\"sociopack_token\", data.access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/coupons",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"coupons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Coupon",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "41b8450e-b709-400d-8939-5e1f38033813",
+						"exec": [
+							"var data = pm.response.json();\r",
+							"pm.environment.set(\"sociopack_token\", data.access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "multipart/form-data",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Test Coupon\",\r\n    \"discountRate\":0.30,\r\n    \"assignCount\":100\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/coupon/create",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"coupon",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Coupon",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2be6f4a2-e515-432e-b6be-9ad52f5a3b8f",
+						"exec": [
+							"var data = pm.response.json();\r",
+							"pm.environment.set(\"sociopack_token\", data.access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "multipart/form-data",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":1,\r\n    \"name\":\"Updated Test Coupon\",\r\n    \"discountRate\":0.30,\r\n    \"assignCount\":1000\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/coupon/update",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"coupon",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Coupon",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5fc9e4e8-f9cc-49a8-a2a2-90d7c72f7dc4",
+						"exec": [
+							"var data = pm.response.json();\r",
+							"pm.environment.set(\"sociopack_token\", data.access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/coupons",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"coupons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Coupon",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9442488c-040c-4423-9ed1-135e6f4fdd0c",
+						"exec": [
+							"var data = pm.response.json();\r",
+							"pm.environment.set(\"sociopack_token\", data.access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "multipart/form-data",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/coupon/delete?couponId=1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"coupon",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "couponId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Assign Coupon To User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ffb4545a-8d36-4308-99dc-d217ec7a415c",
+						"exec": [
+							"var data = pm.response.json();\r",
+							"pm.environment.set(\"sociopack_token\", data.access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/coupons",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"coupons"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
